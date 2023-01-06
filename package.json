@@ -1,0 +1,29 @@
+{
+  "name": "lh3-googleusercontent-url-builder",
+  "version": "1.0.0",
+  "description": "A utility to build lh3.googleusercontent URLs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/votemike/lh3-googleusercontent-url-builder.git"
+  },
+  "keywords": [
+    "lh3",
+    "googleusercontent",
+    "URL",
+    "builder"
+  ],
+  "author": "Michael Gwynne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/votemike/lh3-googleusercontent-url-builder/issues"
+  },
+  "homepage": "https://github.com/votemike/lh3-googleusercontent-url-builder#readme",
+  "devDependencies": {
+    "tape": "^5.6.1"
+  }
+}
