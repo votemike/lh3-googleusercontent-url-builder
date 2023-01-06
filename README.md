@@ -6,7 +6,7 @@ A utility to build lh3.googleusercontent URLs
 
 ## Usage
 ```js
-import urlBuilder from "./index.js";
+import urlBuilder from "lh3-googleusercontent-url-builder";
 
 const baseUrl = 'https://lh3.googleusercontent.com/yourBaseImageUrl';
 const url = urlBuilder(baseUrl, {square: 500});
