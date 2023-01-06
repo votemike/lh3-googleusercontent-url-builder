@@ -1,4 +1,4 @@
-import urlBuilder from "./index.js";
+import urlBuilder, {imageFormats} from "./index.js";
 import test from "tape";
 
 const baseUrl = 'https://lh3.googleusercontent.com/8U8BH0Yis1MxtWF80v_-f3MNnmGc6RpvpG7P-puGzSaiZDooHloePWpfRXhuECOFL9KpZbe5tr0drGG6rzsw_RkTtry-ODtGS576utE0AjHFSSPEcr-D_YRgm5f3_zREaTNeSVXMRNtQhsz9yBw1x8QmySg-II20GEjELHoOGCyLRf6zskp2RqUitqww4GShVDEOc-kCkXkOOR0EGvOhGy3N6WXUj_bbrplux-xbJafyFyWFfjNJIOzhB1R0OIT15NsLyDhMcaI_xCNbz3_wMTLEJCmrmN0T66gj87OwjVrMaTljUGDoD43MUQueJBfQ9unjw-JnWaKGSPqCD395JI-xDAA3AR-BJVtLIAueR2SucbbxivnEuAYilANbM-0UoSoh-c3Muft_xpvDmyA8SwW04mvi5bMmU_cvJtHzOdqxEGR9NFzSFQhRPVpY-0HJaPYhdiuHrtYCowsAXA7wim63HXF5XFKOrvc706q0zTeZSionWlratj--PJRSkAoQntMvTxi19eo-HFVAFFKGT9keyzYcGk-vsOOJCTeYu6enpHqxwP9LUXliWRSuL3HLA1KJWWpPsCE22rYZBurHvXYO4PtL-tvdjZuMA6Fq2EzfZtxb4X1JuWGuOsmXu3YxFuC3GynYp0bO3vob7RIgszzeFznLTBDnGkwWsyeeqvZhlM4J8_XqD1vBjyiErJ8_iEMefNhOvQCqyz-o8tCxkN0yOS2kmaDZJmufCuWxzEU3YFgjGc61pbkx-eh7AL4J_Q7NXaCbueWQ4eLPHVV7n7063BnsfgHLcUMdIT6CE3503-edb_hlycynoKAMRcT6F_UZquSTdkJ88koI25k1BcZrtpXy0rCwUJYIvrA4FXD466f8zKV9vsGiar2KTpQnaowOcsuq4CJc0-GciOGrOONEiKPaDDfDv9tp98YkwgmpzpyHYoDver9ZmLtbQLUKstgQ4Cb6URm7fePKtoyJHvc';
@@ -30,16 +30,16 @@ test('adding single param', function (assert) {
   assert.strictEqual(urlBuilder(baseUrl, {backgroundColor: '00ff99'}), `${baseUrl}=bc0x00ff99`);
   assert.strictEqual(urlBuilder(baseUrl, {padding: 4}), `${baseUrl}=pd4`);
   assert.strictEqual(urlBuilder(baseUrl, {paddingColor: '00ff99'}), `${baseUrl}=pc0x00ff99`);
-  assert.strictEqual(urlBuilder(baseUrl, {imageFormat: 'JPEG'}), `${baseUrl}=rj`);
-  assert.strictEqual(urlBuilder(baseUrl, {imageFormat: 'PNG'}), `${baseUrl}=rp`);
-  assert.strictEqual(urlBuilder(baseUrl, {imageFormat: 'WEBP'}), `${baseUrl}=rw`);
-  assert.strictEqual(urlBuilder(baseUrl, {imageFormat: 'GIF'}), `${baseUrl}=rg`);
+  assert.strictEqual(urlBuilder(baseUrl, {imageFormat: imageFormats.JPEG}), `${baseUrl}=rj`);
+  assert.strictEqual(urlBuilder(baseUrl, {imageFormat: imageFormats.PNG}), `${baseUrl}=rp`);
+  assert.strictEqual(urlBuilder(baseUrl, {imageFormat: imageFormats.WEBP}), `${baseUrl}=rw`);
+  assert.strictEqual(urlBuilder(baseUrl, {imageFormat: imageFormats.GIF}), `${baseUrl}=rg`);
   assert.strictEqual(urlBuilder(baseUrl, {disableWebP: true}), `${baseUrl}=nw`);
   assert.strictEqual(urlBuilder(baseUrl, {forceDownload: true}), `${baseUrl}=d`);
   assert.strictEqual(urlBuilder(baseUrl, {losslessCompression: true}), `${baseUrl}=ft`);
   assert.strictEqual(urlBuilder(baseUrl, {forceLossyCompression: true}), `${baseUrl}=lo`);
   assert.strictEqual(urlBuilder(baseUrl, {lossyCompressionLevel: 20}), `${baseUrl}=l20`);
-  assert.strictEqual(urlBuilder(baseUrl, {lossyCompressionVersion: 1, imageFormat: 'WEBP'}), `${baseUrl}=rw-v1`);
+  assert.strictEqual(urlBuilder(baseUrl, {lossyCompressionVersion: 1, imageFormat: imageFormats.WEBP}), `${baseUrl}=rw-v1`);
 });
 
 test('param combinations', function (assert) {
@@ -63,8 +63,8 @@ test('invalid param combinations', function (assert) {
   assert.throws(() => urlBuilder(baseUrl, {upscaling: false, forceScaling: true}), err);
   err = new Error("`forceScaling: true` requires both height and width to be set");
   assert.throws(() => urlBuilder(baseUrl, {forceScaling: true}), err);
-  err = new Error("`imageFormat: 'WEBP'` does nothing with `disableWebP: true`");
-  assert.throws(() => urlBuilder(baseUrl, {imageFormat: 'WEBP', disableWebP: true}), err);
+  err = new Error("`imageFormat: imageFormats.WEBP` does nothing with `disableWebP: true`");
+  assert.throws(() => urlBuilder(baseUrl, {imageFormat: imageFormats.WEBP, disableWebP: true}), err);
   err = new Error("lossyCompressionLevel takes precedence over lossyCompressionVersion");
   assert.throws(() => urlBuilder(baseUrl, {lossyCompressionLevel: 20, lossyCompressionVersion: 1}), err);
   err = new Error("lossyCompressionVersion requires imageFormat to be set");

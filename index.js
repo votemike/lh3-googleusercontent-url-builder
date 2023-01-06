@@ -1,3 +1,11 @@
+// Matches mime types: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#image_types
+export const imageFormats = {
+  GIF: 'gif',
+  JPEG: 'jpeg',
+  PNG: 'png',
+  WEBP: 'webp'
+};
+
 const urlBuilder = (
   baseUrl,
   {
@@ -114,23 +122,23 @@ const urlBuilder = (
   }
 
   if (imageFormat) {
-    if (imageFormat === 'JPEG') {
+    if (imageFormat === imageFormats.JPEG) {
       params.push(`rj`);
     }
 
-    if (imageFormat === 'PNG') {
+    if (imageFormat === imageFormats.PNG) {
       params.push(`rp`);
     }
 
-    if (imageFormat === 'WEBP') {
+    if (imageFormat === imageFormats.WEBP) {
       if (disableWebP) {
-        throw new Error("`imageFormat: 'WEBP'` does nothing with `disableWebP: true`");
+        throw new Error("`imageFormat: imageFormats.WEBP` does nothing with `disableWebP: true`");
       }
 
       params.push(`rw`);
     }
 
-    if (imageFormat === 'GIF') {
+    if (imageFormat === imageFormats.GIF) {
       params.push(`rg`);
     }
   }
