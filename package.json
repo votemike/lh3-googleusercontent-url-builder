@@ -4,6 +4,7 @@
   "description": "A utility to build lh3.googleusercontent URLs",
   "main": "index.js",
   "type": "module",
+  "types": "index.d.ts",
   "scripts": {
     "test": "node test"
   },
