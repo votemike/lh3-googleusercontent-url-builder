@@ -1,5 +1,5 @@
 interface UrlBuilderOptions {
-  allowUpscale: boolean = true,
+  allowUpscale: boolean,
   backgroundColor: string,
   borderRadius: string,
   borderWidth: string,
@@ -22,7 +22,7 @@ interface UrlBuilderOptions {
   paddingColor: string,
   rotate: string,
   square: string,
-  upscaling: boolean = true,
+  upscaling: boolean,
   width: string
 }
 
