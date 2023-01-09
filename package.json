@@ -7,6 +7,9 @@
   "scripts": {
     "test": "node test"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/votemike/lh3-googleusercontent-url-builder.git"
