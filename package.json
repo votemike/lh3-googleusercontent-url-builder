@@ -9,16 +9,13 @@
     "test": "node test"
   },
   "files": [
+    "index.d.ts",
     "index.js"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/votemike/lh3-googleusercontent-url-builder.git"
   },
-  "files": [
-    "index.d.ts",
-    "index.js"
-  ],
   "keywords": [
     "lh3",
     "googleusercontent",
