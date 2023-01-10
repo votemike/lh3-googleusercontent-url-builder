@@ -26,4 +26,4 @@ interface UrlBuilderOptions {
   width: number
 }
 
-export default function urlBuilder(baseUrl: string, options: UrlBuilderOptions): MyResponse;
+export default function urlBuilder(baseUrl: string, options: UrlBuilderOptions): string;
