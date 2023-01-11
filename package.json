@@ -1,6 +1,6 @@
 {
   "name": "lh3-googleusercontent-url-builder",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A utility to build lh3.googleusercontent URLs",
   "main": "index.js",
   "type": "module",
